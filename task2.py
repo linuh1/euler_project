@@ -8,7 +8,12 @@ while True:
 print(sum([num for num in fibonacci_nums if num%2==0]))
 
 
-# def gen_fibonacci(limit: int):
-#     pass
-#
-# print(sum(n for n in gen_fibonacci(4 * 10 ** 6) if n%2 == 0))
+def gen_fibonacci(limit: int):
+    num = 2
+    prev_num = 1
+    while prev_num < limit:
+        yield prev_num
+        prev_num, num = num, prev_num + num
+
+
+print(sum([n for n in gen_fibonacci(4*10**6) if n % 2 == 0]))
